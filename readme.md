@@ -2,6 +2,10 @@
 
 本项目基于某论坛上一位大佬[@Moonfanzp](https://github.com/Moonfanz)的代码修改而来,~~但鉴于本人能力水平有限,所以项目可能出现一些bug,请谨慎使用~~bug修的差不多了!下面是介绍:
 这是一个基于 FastAPI 构建的 Gemini API 代理，旨在提供一个简单、安全且可配置的方式来访问 Google 的 Gemini 模型。适用于在 Hugging Face Spaces 上部署，并支持openai api格式的工具集成。
+=====================================
+二次修改：增加了多模态和联网搜索功能。
+多模态默认开启。
+联网功能需要配置ENABLE_SEARCH = true
 
 ## ✨ 主要功能：
 
@@ -22,8 +26,9 @@
 ### 🚦 速率限制和防滥用：
 
 *   通过环境变量自定义限制：
-    *   `MAX_REQUESTS_PER_MINUTE`：每分钟最大请求数（默认 30）。
-    *   `MAX_REQUESTS_PER_DAY_PER_IP`：每天每个 IP 最大请求数（默认 600）。
+    *   `MAX_REQUESTS_PER_MINUTE`：每分钟最大请求数（默认 60）。
+    *   `MAX_REQUESTS_PER_DAY_PER_IP`：每天每个 IP 最大请求数（默认 2000）。
+    *   `ENABLE_SEARCH`：是否开启联网搜索,true为开启,false为关闭,默认为true。
 *   超过速率限制时返回 429 错误。
 
 ### 🧩 服务兼容
@@ -41,6 +46,7 @@
     *   `PASSWORD`：（可选）设置访问密码，留空则使用默认密码 `"123"`。
     *   `MAX_REQUESTS_PER_MINUTE`：（可选）每分钟最大请求数。
     *   `MAX_REQUESTS_PER_DAY_PER_IP`：（可选）每天每个 IP 最大请求数。
+    *   `ENABLE_SEARCH`：（可选）是否开启联网搜索,true为开启,false为关闭,默认为true。
     ...(还有一些变量,但是没啥大用,可以到代码里找)
 4.  确保 `requirements.txt` 文件已包含必要的依赖。
 5.  Space 将会自动构建并运行。
