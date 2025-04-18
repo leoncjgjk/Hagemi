@@ -47,6 +47,7 @@
     *   `MAX_REQUESTS_PER_MINUTE`：（可选）每分钟最大请求数。
     *   `MAX_REQUESTS_PER_DAY_PER_IP`：（可选）每天每个 IP 最大请求数。
     *   `ENABLE_SEARCH`：（可选）是否开启联网搜索,true为开启,false为关闭,默认为true。
+    *   `thinkingBudget`：（可选）为包含 `gemini-2.5` 的模型设置思考预算。有效值为 0 到 24576 的整数。设置为 0 将禁用思考；设置为 1 到 1024 之间的值将实际使用 1024 作为预算。如果未设置或设置的值无效，则不应用此配置。
     ...(还有一些变量,但是没啥大用,可以到代码里找)
 4.  确保 `requirements.txt` 文件已包含必要的依赖。
 5.  Space 将会自动构建并运行。
